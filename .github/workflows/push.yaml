@@ -1,11 +1,11 @@
-name: Publish package to GitHub Packages
+name: Build on push
 on:
   push:
     branches:
       - main
       - master
 jobs:
-  publish:
+  build:
     runs-on: ubuntu-latest 
     permissions: 
       contents: read
