@@ -28,6 +28,14 @@ public class CloudEventUtil {
 
     @Channel("default-broker")
     Emitter<Object> cloudEventEmitter;
+    
+    public CloudEventUtil() {}
+    
+    public CloudEventUtil(ObjectMapper mapper, String serviceSource, Emitter<Object> cloudEventEmitter) {
+        this.mapper = mapper;
+        this.serviceSource = serviceSource;
+        this.cloudEventEmitter = cloudEventEmitter;
+    }
 
     public Uni<Void> sendEvent(Object record, String id) {
         CompletableFuture<Void> future = new CompletableFuture<>();
